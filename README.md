@@ -27,36 +27,35 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column          | Type   | Options     |
-| --------------- | ------ | ----------- |
-| nickname        | string | null: false |
-| email           | string | null: false |
-| password        | string | null: false |
-| kanjifirstname  | string | null: false |
-| kanjifamilyname | string | null: false |
-| kanafirstname   | string | null: false |
-| kanafamilyname  | string | null: false |
-| birthday        | text   | null: false |
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| kanjifirstname     | string | null: false |
+| kanjifamilyname    | string | null: false |
+| kanafirstname      | string | null: false |
+| kanafamilyname     | string | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 
 - has_many :items
 - has_many :comments
-- has_one :consumer
+- has_many :consumers
 
 ## items テーブル
 
-| Column       | Type   | Options     |
-| ------------ | ------ | ----------- |
-| image        | string | null: false |
-| name         | string | null: false |
-| discriotion  | string | null: false |
-| category     | string | null: false |
-| status       | string | null: false |
-| shippingfee  | string | null: false |
-| shippingarea | string | null: false |
-| shippingdate | string | null: false |
-| price        | text   | null: false |
+| Column          | Type    | Options     |
+| --------------- | ------- | ----------- |
+| name            | string  | null: false |
+| discription     | text    | null: false |
+| category_id     | integer | null: false |
+| status_id       | integer | null: false |
+| shippingfee_id  | integer | null: false |
+| shippingarea_id | integer | null: false |
+| shippingdate_id | integer | null: false |
+| price           | integer | null: false |
 
 ### Association
 
@@ -66,9 +65,9 @@ Things you may want to cover:
 
 ## comments テーブル
 
-| Column  | Type       | Options   |
-| ------- | ---------- | --------- |
-| content | string     | null: false |
+| Column  | Type   | Options   |
+| ------- | ------ | --------- |
+| content | string | null: false |
 
 ### Association
 
@@ -76,9 +75,10 @@ Things you may want to cover:
 
 ## consumers テーブル
 
-| Column | Type       | Options     |
-| ------ | ---------- | ----------- |
-| date   | string     | null: false |
+| Column  | Type    | Options           |
+| ------- | ------- | ----------------- |
+| item_id | integer | foreign_key: true |
+| user_id | integer | foreign_key: true |
 
 ### Association
 
@@ -88,14 +88,15 @@ Things you may want to cover:
 
 ## shipping_adresses テーブル
 
-| Column      | Type       | Options     |
-| ----------- | ---------- | ----------- |
-| postal      | string     | null: false |
-| prefucture  | string     | null: false |
-| city        | string     | null: false |
-| adress      | string     | null: false |
-| building    | string     | null: false |
-| phonenumber | string     | null: false |
+| Column        | Type    | Options           |
+| ------------- | ------- | ----------------- |
+| postal        | string  | null: false       |
+| prefucture_id | integer | null: false       |
+| city          | string  | null: false       |
+| adress        | string  | null: false       |
+| building      | string  |                   |
+| phonenumber   | string  | null: false       |
+| consumers_id  | integer | foreign_key: true |
 
 ### Association
 
