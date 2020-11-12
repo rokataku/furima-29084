@@ -65,9 +65,11 @@ Things you may want to cover:
 
 ## comments テーブル
 
-| Column  | Type   | Options   |
-| ------- | ------ | --------- |
-| content | string | null: false |
+| Column  | Type    | Options           |
+| ------- | ------- | ----------------- |
+| item_id | integer | foreign_key: true |
+| user_id | integer | foreign_key: true |
+| content | string  | null: false       |
 
 ### Association
 
