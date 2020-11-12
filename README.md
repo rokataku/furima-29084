@@ -68,9 +68,9 @@ Things you may want to cover:
 
 | Column  | Type    | Options           |
 | ------- | ------- | ----------------- |
+| content | string  | null: false       |
 | item_id | integer | foreign_key: true |
 | user_id | integer | foreign_key: true |
-| content | string  | null: false       |
 
 ### Association
 
