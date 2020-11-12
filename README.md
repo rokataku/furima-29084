@@ -97,7 +97,7 @@ Things you may want to cover:
 | postal        | string  | null: false       |
 | prefucture_id | integer | null: false       |
 | city          | string  | null: false       |
-| adress        | string  | null: false       |
+| address       | string  | null: false       |
 | building      | string  |                   |
 | phonenumber   | string  | null: false       |
 | consumers_id  | integer | foreign_key: true |
