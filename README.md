@@ -100,7 +100,7 @@ Things you may want to cover:
 | address       | string  | null: false       |
 | building      | string  |                   |
 | phonenumber   | string  | null: false       |
-| consumers_id  | integer | foreign_key: true |
+| consumer_id   | integer | foreign_key: true |
 
 ### Association
 
