@@ -86,11 +86,11 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :shipping_adress
+- has_one :shipping_address
 - belongs_to :item
 - belongs_to :user
 
-## shipping_adresses テーブル
+## shipping_addresses テーブル
 
 | Column        | Type    | Options           |
 | ------------- | ------- | ----------------- |
