@@ -34,7 +34,7 @@ Things you may want to cover:
 | encrypted_password | string | null: false |
 | kanjifirstname     | string | null: false |
 | kanjifamilyname    | string | null: false |
-| kanafirstname      | string | null: false |
+| first_name_kana    | string | null: false |
 | kanafamilyname     | string | null: false |
 | birthday           | date   | null: false |
 
