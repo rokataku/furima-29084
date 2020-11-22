@@ -18,6 +18,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def price
+    price = Item.find(params[:price])
+    fee = price * 0.1
+
+    render json: { item: fee}
+  end
+
   private
   def item_params
     params.require(:item).permit(

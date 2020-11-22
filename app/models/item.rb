@@ -6,6 +6,10 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shippingdate
 
+  belongs_to :user
+  has_one_attached :image
+
+
   with_options presence: true do
     validates :name
     validates :discription
@@ -21,7 +25,12 @@ class Item < ApplicationRecord
     validates :shippingdate
   end
 
-  belongs_to :user
-  has_one_attached :image
+  with_options presence: true, format: { with: /\A[0-9]+\z/, message: 'は半角数字を使用してください' } do
+    validates :price
+  end
+
+  with_options inclusion: {in: 300..9999999 }, format: { message: 'は¥300~¥9,999,999の間で入力してください' } do
+    validates :price
+  end
 
 end
