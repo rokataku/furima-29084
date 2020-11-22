@@ -13,7 +13,6 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :discription
-    validates :price
     validates :image
   end
 
@@ -23,6 +22,14 @@ class Item < ApplicationRecord
     validates :shippingfee_id
     validates :prefecture_id
     validates :shippingdate_id
+  end
+
+  with_options numericality: { greater_than_or_equal_to: 300, message: 'は¥300~¥9,999,999の間としてください' } do
+    validates :price
+  end
+
+  with_options numericality: { less_than_or_equal_to: 9999999, message: 'は¥300~¥9,999,999の間としてください' } do
+    validates :price
   end
 
   with_options presence: true, format: { with: /\A[0-9]+\z/, message: 'は半角数字を使用してください' } do
