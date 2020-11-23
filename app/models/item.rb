@@ -32,7 +32,7 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  with_options presence: true, format: { with: /\A[0-9]+\z/, message: 'は半角数字を使用してください' } do
+  with_options presence: true, numericality: { with: /\A[0-9]+\z/, message: 'は半角数字を使用してください' } do
     validates :price
   end
 
