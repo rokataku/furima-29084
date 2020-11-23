@@ -34,27 +34,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Discription can't be blank")
       end
       it "カテゴリーの情報が必須であること" do
-        @item.category_id = "1"
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category が選択されていません")
       end
       it "商品の状態についての情報が必須であること" do
-        @item.status_id  = "1"
+        @item.status_id  = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status が選択されていません")
       end
       it "配送料の負担についての情報が必須であること" do
-        @item.shippingfee_id  = "1"
+        @item.shippingfee_id  = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shippingfee が選択されていません")
       end
       it "発送元の地域についての情報が必須であること" do
-        @item.prefecture_id  = "1"
+        @item.prefecture_id  = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture が選択されていません")
       end
       it "発送までの日数についての情報が必須であること" do
-        @item.shippingdate_id  = "1"
+        @item.shippingdate_id  = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shippingdate が選択されていません")
       end
@@ -64,12 +64,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it "価格の範囲が、¥300未満では投稿できないこと" do
-        @item.price  = "299"
+        @item.price  = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Price は¥300~¥9,999,999の間としてください")
       end
       it "価格の範囲が、¥9,999,999超では投稿できないこと" do
-        @item.price  = "10000000"
+        @item.price  = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price は¥300~¥9,999,999の間としてください")
       end
