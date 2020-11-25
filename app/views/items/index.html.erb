@@ -149,7 +149,14 @@
 
           <%# 商品が売れていればsold outを表示しましょう %>
           <div class='sold-out'>
-            <span>Sold Out!!</span>
+
+            <% if 「もし選択した商品に紐づく購入記録が存在していたら（空ではなかったら）、"sold out"と表示する」%>
+              <% <%= image_tag "star.png", class:"star-icon" %>%>
+              <span>Sold Out!!</span>
+              <%= item.name %>
+              <span><%= item.price %>円<br>(税込み)</span>
+            <% end %>
+
           </div>
           <%# //商品が売れていればsold outを表示しましょう %>
 
