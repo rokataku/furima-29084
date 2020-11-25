@@ -133,6 +133,16 @@
 
           <% @items.each do |item| %>
             <%= image_tag item.image, class: "item-img" %>
+
+          <%# 商品が売れていればsold outを表示しましょう %>
+            <div hidden class='sold-out'>
+              <%# if consumer.item_id != nil %>
+                <%#= image_tag "star.png", class:"star-icon" %>
+                <span>Sold Out!!</span>
+              <%# end %>
+            </div>
+          <%# //商品が売れていればsold outを表示しましょう %>
+
             <div class='item-info'>
               <h3 class='item-name'>
                 <%= item.name %>
@@ -145,20 +155,10 @@
                 </div>
               </div>
             </div>
+
           <% end %>
 
-          <%# 商品が売れていればsold outを表示しましょう %>
-          <div class='sold-out'>
 
-            <% if 「もし選択した商品に紐づく購入記録が存在していたら（空ではなかったら）、"sold out"と表示する」%>
-              <% <%= image_tag "star.png", class:"star-icon" %>%>
-              <span>Sold Out!!</span>
-              <%= item.name %>
-              <span><%= item.price %>円<br>(税込み)</span>
-            <% end %>
-
-          </div>
-          <%# //商品が売れていればsold outを表示しましょう %>
 
         </div>
 

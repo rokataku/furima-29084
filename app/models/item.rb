@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :shippingdate
 
   belongs_to :user
+  has_one :consumer
   has_one_attached :image
 
 
