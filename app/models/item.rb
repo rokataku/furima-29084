@@ -7,8 +7,8 @@ class Item < ApplicationRecord
   belongs_to :shippingdate
 
   belongs_to :user
+  has_one :consumer
   has_one_attached :image
-
 
   with_options presence: true do
     validates :name
@@ -28,12 +28,11 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  with_options numericality: { less_than_or_equal_to: 9999999, message: 'は¥300~¥9,999,999の間としてください' } do
+  with_options numericality: { less_than_or_equal_to: 9_999_999, message: 'は¥300~¥9,999,999の間としてください' } do
     validates :price
   end
 
   with_options presence: true, numericality: { with: /\A[0-9]+\z/, message: 'は半角数字を使用してください' } do
     validates :price
   end
-
 end

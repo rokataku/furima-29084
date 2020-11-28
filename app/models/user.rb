@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :birthday
   end
 
-  with_options presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: 'は半角英数字混合を使用してください' } do
+  with_options presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は半角英数字混合を使用してください' } do
     validates :password
   end
 
@@ -28,5 +28,4 @@ class User < ApplicationRecord
     validates :first_name_kana
     validates :kanafamilyname
   end
-
 end
