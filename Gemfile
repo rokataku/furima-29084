@@ -61,7 +61,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-<<<<<<< Updated upstream
 gem 'pry-rails'
 
 group :production do
@@ -73,6 +72,3 @@ gem 'active_hash'
 
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
-=======
-gem 'pry-rails'
->>>>>>> Stashed changes
