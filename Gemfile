@@ -44,7 +44,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 end
 
 group :test do
@@ -58,6 +61,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+<<<<<<< Updated upstream
 gem 'pry-rails'
 
 group :production do
@@ -69,3 +73,6 @@ gem 'active_hash'
 
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+=======
+gem 'pry-rails'
+>>>>>>> Stashed changes
