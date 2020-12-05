@@ -90,7 +90,7 @@ Things you may want to cover:
 - belongs_to :item
 - belongs_to :user
 
-## shipping_addresses テーブル
+## addresses テーブル
 
 | Column        | Type    | Options           |
 | ------------- | ------- | ----------------- |
