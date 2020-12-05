@@ -8,6 +8,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one :consumer
+  has_one :address
   has_one_attached :image
 
   with_options presence: true do
