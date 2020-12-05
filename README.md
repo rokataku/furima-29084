@@ -63,6 +63,7 @@ Things you may want to cover:
 - has_many :comments
 - belongs_to :user
 - has_one :consumer
+- has_one :address
 
 ## comments テーブル
 
@@ -86,7 +87,6 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :shipping_address
 - belongs_to :item
 - belongs_to :user
 
@@ -94,14 +94,14 @@ Things you may want to cover:
 
 | Column        | Type    | Options           |
 | ------------- | ------- | ----------------- |
-| postal        | string  | null: false       |
+| postal_code   | string  | null: false       |
 | prefucture_id | integer | null: false       |
 | city          | string  | null: false       |
-| address       | string  | null: false       |
-| building      | string  |                   |
+| house_number  | string  | null: false       |
+| building_name | string  |                   |
 | phonenumber   | string  | null: false       |
-| consumer_id   | integer | foreign_key: true |
+| item_id   | integer | foreign_key: true |
 
 ### Association
 
-- belongs_to :consumer
+- belongs_to :item
