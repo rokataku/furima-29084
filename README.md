@@ -63,7 +63,6 @@ Things you may want to cover:
 - has_many :comments
 - belongs_to :user
 - has_one :consumer
-- has_one :address
 
 ## comments テーブル
 
@@ -89,6 +88,7 @@ Things you may want to cover:
 
 - belongs_to :item
 - belongs_to :user
+- has_one :address
 
 ## addresses テーブル
 
@@ -100,8 +100,8 @@ Things you may want to cover:
 | house_number  | string  | null: false       |
 | building_name | string  |                   |
 | phonenumber   | string  | null: false       |
-| item_id   | integer | foreign_key: true |
+| consumer_id   | integer | foreign_key: true |
 
 ### Association
 
-- belongs_to :item
+- belongs_to :consumer
