@@ -1,25 +1,26 @@
 class ConsumersController < ApplicationController
   def index
+    
   end
 
   def new
+    @consumer_address = ConsumerAddress.new
   end
 
   def create
-    binding.pry
-    Address.create(address_params)
-    Consumer.create(consumer_params)
-    redirect_to action: :index
+    @consumer_address = ConsumerAddress.new(consumer_params)
+      if @consumer_address.valid?
+        @consumer_address.save
+        redirect_to root_path
+      else
+        render action: :index
+      end
   end
 
   private
 
-  def address_params
-    params.prermit(:postal_code, :prefecture, :city, :house_number, :building_name, :phonenumber).merge(item_id: current_item.id)
-  end
-
   def consumer_params
-    params.merge(item_id: current_item.id)
+    params.permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phonenumber, :item_id).merge(user_id: current_user.id)
   end
 
 end
