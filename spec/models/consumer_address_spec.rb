@@ -26,7 +26,7 @@ RSpec.describe ConsumerAddress, type: :model do
       expect(@consumer_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
     end
     it 'prefectureを選択していないと保存できないこと' do
-      @consumer_address.prefecture_id = 0
+      @consumer_address.prefecture_id = 1
       @consumer_address.valid?
       expect(@consumer_address.errors.full_messages).to include("Prefecture can't be blank")
     end
@@ -46,7 +46,7 @@ RSpec.describe ConsumerAddress, type: :model do
       expect(@consumer_address.errors.full_messages).to include("Phonenumber can't be blank")
     end
     it 'phonenumberハイフンは不要で、11桁以内でないと保存できないこと' do
-      @consumer_address.phonenumber = '123456'
+      @consumer_address.phonenumber = '1234567891011'
       @consumer_address.valid?
       expect(@consumer_address.errors.full_messages).to include("Phonenumber is out of setting range")
     end
