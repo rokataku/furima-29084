@@ -9,8 +9,8 @@ class ConsumersController < ApplicationController
   def create
     item = Item.find(params[:item_id])
     @price = item.price
-    binding.pry
     @consumer_address = ConsumerAddress.new(consumer_params)
+    binding.pry
     if @consumer_address.valid?
       pay_item
       @consumer_address.save
@@ -23,7 +23,7 @@ class ConsumersController < ApplicationController
   private
 
   def consumer_params
-    params.require(:consumer_address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phonenumber).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:consumer_address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phonenumber).merge(user_id: current_user.id,item_id: params[:item_id], token: params[:token])
   end
 
   def pay_item
