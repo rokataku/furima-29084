@@ -4,13 +4,13 @@ class ConsumersController < ApplicationController
     item = Item.find(params[:item_id])
     @name = item.name
     @price = item.price
+    @consumer_address = ConsumerAddress.new
   end
 
   def create
     item = Item.find(params[:item_id])
     @price = item.price
     @consumer_address = ConsumerAddress.new(consumer_params)
-    binding.pry
     if @consumer_address.valid?
       pay_item
       @consumer_address.save
