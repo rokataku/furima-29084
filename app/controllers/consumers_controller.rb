@@ -7,6 +7,7 @@ class ConsumersController < ApplicationController
     item = Item.find(params[:item_id])
     @name = item.name
     @price = item.price
+    @image = item.image
     @consumer_address = ConsumerAddress.new
   end
 
