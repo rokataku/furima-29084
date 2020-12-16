@@ -7,14 +7,11 @@
     </h2>
     <div class='item-img-content'>
       <%= image_tag @item.image,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
-                  <div hidden class='sold-out'>
-                    <%# if consumer.item_id != nil %>
-                      <%#= image_tag "star.png", class:"star-icon" %>
-                      <span>Sold Out!!</span>
-                    <%# end %>
-                  </div>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
+        <div class='sold-out'>
+          <% if @item.consumer != nil %>
+            <span>Sold Out!!</span>
+          <% end %>
+        </div>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -31,9 +28,9 @@
         <p class='or-text'>or</p>
         <%= link_to '削除', item_path(@item.id), method: :delete, class: "item-destroy" %>
       <% else %>
-        <%# 商品が売れていない場合はこちらを表示しましょう %>
+        <% unless @item.consumer != nil %>
         <%= link_to '購入画面に進む', item_consumers_path(@item.id) ,class:"item-red-btn"%>
-        <%# //商品が売れていない場合はこちらを表示しましょう %>
+        <% end %>
       <% end %>
     <% end %>
 
