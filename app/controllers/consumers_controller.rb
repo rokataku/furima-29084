@@ -1,19 +1,14 @@
 class ConsumersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create, :move_to_index]
   before_action :move_to_index, only: [:index]
 
 
   def index
-    item = Item.find(params[:item_id])
-    @name = item.name
-    @price = item.price
-    @image = item.image
     @consumer_address = ConsumerAddress.new
   end
 
   def create
-    item = Item.find(params[:item_id])
-    @price = item.price
     @consumer_address = ConsumerAddress.new(consumer_params)
     if @consumer_address.valid?
       pay_item
@@ -25,6 +20,9 @@ class ConsumersController < ApplicationController
   end
 
   private
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
   def consumer_params
     params.require(:consumer_address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phonenumber).merge(user_id: current_user.id,item_id: params[:item_id], token: params[:token])
@@ -33,15 +31,14 @@ class ConsumersController < ApplicationController
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: @price,
+      amount: @item.price,
       card: params[:token],
       currency: 'jpy'
     )
   end
 
   def move_to_index
-    item = Item.find(params[:item_id]) 
-    if current_user.id == item.user_id
+    if current_user.id == @item.user_id
       redirect_to root_path
     end
   end
