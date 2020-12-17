@@ -7,7 +7,7 @@ class ConsumerAddress
     validates :postal_code
   end
 
-  with_options numericality: { other_than: 1, message: "can't be blank" } do
+  with_options presence: true, numericality: { other_than: 1, message: "can't be blank" } do
     validates :prefecture_id
   end
 
