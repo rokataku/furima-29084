@@ -30,6 +30,11 @@ RSpec.describe ConsumerAddress, type: :model do
       @consumer_address.valid?
       expect(@consumer_address.errors.full_messages).to include("Prefecture can't be blank")
     end
+    it 'prefecture_idが空だと保存できないこと' do
+      @consumer_address.prefecture_id = nil
+      @consumer_address.valid?
+      expect(@consumer_address.errors.full_messages).to include("Prefecture can't be blank")
+    end
     it 'cityが空だと保存できないこと' do
       @consumer_address.city = nil
       @consumer_address.valid?
@@ -45,7 +50,12 @@ RSpec.describe ConsumerAddress, type: :model do
       @consumer_address.valid?
       expect(@consumer_address.errors.full_messages).to include("Phonenumber can't be blank")
     end
-    it 'phonenumberハイフンは不要で、11桁以内でないと保存できないこと' do
+    it 'phonenumberハイフンは不要' do
+      @consumer_address.phonenumber = '123-4567-8910'
+      @consumer_address.valid?
+      expect(@consumer_address.errors.full_messages).to include("Phonenumber is out of setting range")
+    end
+    it 'phonenumberハイフンは11桁以内でないと保存できないこと' do
       @consumer_address.phonenumber = '1234567891011'
       @consumer_address.valid?
       expect(@consumer_address.errors.full_messages).to include("Phonenumber is out of setting range")
