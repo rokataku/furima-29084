@@ -9,7 +9,7 @@ RSpec.describe ConsumerAddress, type: :model do
       @consumer_address.building_name = nil
       expect(@consumer_address).to be_valid
     end
-    it "tokenがあれば保存できること" do
+    it "全ての値が正常であれば保存できること" do
       expect(@consumer_address).to be_valid
     end
   end
