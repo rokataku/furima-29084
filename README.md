@@ -86,19 +86,19 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :shipping_address
 - belongs_to :item
 - belongs_to :user
+- has_one :address
 
-## shipping_addresses テーブル
+## addresses テーブル
 
 | Column        | Type    | Options           |
 | ------------- | ------- | ----------------- |
-| postal        | string  | null: false       |
+| postal_code   | string  | null: false       |
 | prefucture_id | integer | null: false       |
 | city          | string  | null: false       |
-| address       | string  | null: false       |
-| building      | string  |                   |
+| house_number  | string  | null: false       |
+| building_name | string  |                   |
 | phonenumber   | string  | null: false       |
 | consumer_id   | integer | foreign_key: true |
 
