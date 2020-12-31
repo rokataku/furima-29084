@@ -60,7 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 
 group :production do
-  gem 'rails_12factor'
+  gem 'unicorn', '5.4.1'
 end
 
 gem 'devise'
